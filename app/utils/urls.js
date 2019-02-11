@@ -17,7 +17,9 @@ const urls = {
    "getUsersList": "/users",
    "addFavs": "/users/addToFavs",
    "removeFavs": "/users/removeFromFavs",
-   "getFavs": "/map/findMultiple"
+   "getFavs": "/map/findMultiple",
+   "uploadImages": "/multiple",
+   "searchUser": "/user/searchUser"
  }
  
  export default urls;

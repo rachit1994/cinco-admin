@@ -1,4 +1,5 @@
 import Button from '@material-ui/core/Button';
+import ImageUploader from 'react-images-upload';
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { compose } from 'redux';
@@ -26,6 +27,8 @@ export class AddNewCompaniesPage extends React.PureComponent {
             phone: '',
             address: '',
             website: '',
+            images: [],
+            pictures: []
         };
     }
 
@@ -35,12 +38,25 @@ export class AddNewCompaniesPage extends React.PureComponent {
         });
     };
 
+    onDrop = (picture, a) => {
+        var newPictures = [];
+
+        picture.map((img) => {
+            newPictures = newPictures.concat(img.name);
+        })
+
+        this.setState({
+            images: picture,
+            pictures: newPictures
+        });
+    }
+
     render() {
         return (
             <form>
                 {
                     Object.keys(this.state).map((title, i) => (
-                        <TextField
+                        title != 'images' && <TextField
                             label={title}
                             margin="normal"
                             fullWidth
@@ -48,9 +64,18 @@ export class AddNewCompaniesPage extends React.PureComponent {
                             type="text"
                             key={title + i}
                             onChange={this.handleChange(title)}
+                            value={this.state[title]}
                         />
                     ))
                 }
+                <ImageUploader
+                    withIcon={true}
+                    buttonText='Choose images'
+                    onChange={this.onDrop}
+                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                    maxFileSize={5242880}
+                    withPreview={true}
+                />
                 <Button
                     variant="contained"
                     color="primary"

@@ -17,7 +17,8 @@ export function* requestApi(action) {
   console.log('coming in saga', action);
   const { state, token } = action;
   const requestURL = urls.baseUrl + urls.addNewLocation;
-
+  const uploadImages = urls.baseUrl + urls.uploadImages;
+  
   try {
     if(!token.tokenType) {
         yield put(setError({message: 'no token, please login'}));
@@ -31,9 +32,21 @@ export function* requestApi(action) {
         "Authorization": `${token.tokenType} ${token.accessToken}`
       },
     }
+    const imagesOptions = {
+      method: 'POST',
+      body: state.images,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }
+    // console.log('in try', imagesOptions);
+    // const images = yield call(request, uploadImages);
+    // console.log('images', images);
     const user = yield call(request, requestURL, options);
+    console.log('userrr', user);
     yield put(setSuccess(user));
   } catch (err) {
+    console.log('coming in error', err);
     yield put(setError(err));
   }
 }

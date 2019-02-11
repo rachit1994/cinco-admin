@@ -8,6 +8,7 @@ import FeaturePage from 'containers/FeaturePage/Loadable';
 import Grid from '@material-ui/core/Grid';
 import { Helmet } from 'react-helmet';
 import HomePage from 'containers/HomePage/Loadable';
+import ManageUsersPage from 'containers/manageUsers/Loadable';
 import Paper from '@material-ui/core/Paper';
 import React from 'react';
 import Sidebar from 'components/Sidebar';
@@ -79,6 +80,7 @@ export class DashboardPage extends React.PureComponent {
                                 <Route exact path="/" component={HomePage} />
                                 <Route path="/dashboard" component={FeaturePage} />
                                 <Route path="/addNewCompanies" component={AddNewCompaniesPage} />
+                                <Route path="/manageUsers" component={ManageUsersPage} />
                             </Paper>
                         </Grid>
                     </Grid>
