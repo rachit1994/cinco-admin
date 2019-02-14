@@ -23,11 +23,13 @@ export function searchUserAction(text, token) {
     }
 }
 
-export function updateUser(id, update) {
+export function updateUser(id, update, token) {
+    console.log('in action', id, update, token);
     return {
         type: UPDATE_USER,
         id,
-        update
+        update,
+        token
     }
 }
 

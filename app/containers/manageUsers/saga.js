@@ -5,10 +5,10 @@
 import { DELETE_USER, GET_USERS_LIST, SAVE_USERS, SEARCH_USER, UPDATE_USER } from './constants';
 import { all, call, put, select, takeEvery, takeLatest } from 'redux-saga/effects';
 import { repoLoadingError, reposLoaded } from 'containers/App/actions';
-import { saveUsersToReducer, updateUser } from './actions';
+import { setError, setSuccess } from 'containers/App/actions';
 
 import request from 'utils/request';
-import { setError } from 'containers/App/actions';
+import { saveUsersToReducer } from './actions';
 import urls from 'utils/urls';
 
 /**
@@ -73,7 +73,30 @@ export function* searchUser(action) {
 }
 
 export function* updateUserSaga(action) {
-  const { id, update } = action;
+  const { id, update, token } = action;
+  const requestURL = urls.baseUrl + urls.updateProfile + '/' + id;
+  console.log('in saga', id, update, token);
+
+  try {
+    if (!token || (token && !token.tokenType)) {
+      yield put(setError({ message: 'no token, please login' }));
+    } else {
+      const options = {
+        method: 'patch',
+        body: JSON.stringify(update),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `${token.tokenType} ${token.accessToken}`
+        },
+      }
+      // Call our request helper (see 'utils/request')
+      const users = yield call(request, requestURL, options);
+      console.log('users update saga', users);
+      yield put(setSuccess('successful'));
+    }
+  } catch(err) {
+    yield put(repoLoadingError(err));
+  }
 }
 
 export function* deleteUserSaga(action) {

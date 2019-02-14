@@ -46,13 +46,13 @@ export class DashboardPage extends React.PureComponent {
     }
 
     componentWillMount() {
-        // this.authentication();
+        this.authentication();
     }
 
     authentication() {
         console.log('authentication', this.props.loginResult);
         if (this.props.loginResult && this.props.loginResult.user && this.props.loginResult.user.id) {
-            this.props.history.push('/dashboard');
+            this.props.history.push('/addNewCompanies');
         } else {
             this.props.history.push('/login');
         }
@@ -77,8 +77,6 @@ export class DashboardPage extends React.PureComponent {
                     >
                         <Grid item>
                             <Paper elevation={1} style={{ padding: 50, textAlign: 'center' }}>
-                                <Route exact path="/" component={HomePage} />
-                                <Route path="/dashboard" component={FeaturePage} />
                                 <Route path="/addNewCompanies" component={AddNewCompaniesPage} />
                                 <Route path="/manageUsers" component={ManageUsersPage} />
                             </Paper>
