@@ -1,0 +1,1 @@
+export const UPLOAD_MULTIPLE = 'boilerplate/uploadExcel/upload_multiple';

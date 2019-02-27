@@ -12,6 +12,7 @@ import ManageUsersPage from 'containers/manageUsers/Loadable';
 import Paper from '@material-ui/core/Paper';
 import React from 'react';
 import Sidebar from 'components/Sidebar';
+import UploadExcel from 'containers/UploadExcel/Loadable';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectLogin } from 'containers/LoginPage/selectors';
@@ -79,6 +80,7 @@ export class DashboardPage extends React.PureComponent {
                             <Paper elevation={1} style={{ padding: 50, textAlign: 'center' }}>
                                 <Route path="/addNewCompanies" component={AddNewCompaniesPage} />
                                 <Route path="/manageUsers" component={ManageUsersPage} />
+                                <Route path="/addMultipleCompanies" component={UploadExcel} />
                             </Paper>
                         </Grid>
                     </Grid>

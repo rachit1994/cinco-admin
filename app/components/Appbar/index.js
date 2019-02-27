@@ -34,6 +34,7 @@ function ButtonAppBar(props) {
             Admin Dashboard
           </Typography>
           <Button color="inherit">{user.name || user.email || ''} </Button>
+          <Button color="inherit">Role: {user.role || ''} </Button>
         </Toolbar>
       </AppBar>
     </div>

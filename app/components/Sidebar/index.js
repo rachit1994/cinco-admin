@@ -46,6 +46,11 @@ const Sidebar = ({ classes }) => (
                 </Link>
             </ListItem>
             <ListItem button>
+                <Link to="/addMultipleCompanies">
+                    Add Multiple Companies
+                </Link>
+            </ListItem>
+            <ListItem button>
                 <Link to="/addPromotions">
                     Add new Promotions
                 </Link>
@@ -55,6 +60,7 @@ const Sidebar = ({ classes }) => (
                     Manage Users
                 </Link>
             </ListItem>
+           
 
         </List>
     </Drawer>
