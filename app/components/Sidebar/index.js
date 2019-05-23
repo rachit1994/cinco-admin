@@ -51,6 +51,11 @@ const Sidebar = ({ classes }) => (
                 </Link>
             </ListItem>
             <ListItem button>
+                <Link to="/addImages">
+                    Add Images to Companies
+                </Link>
+            </ListItem>
+            <ListItem button>
                 <Link to="/addPromotions">
                     Add new Promotions
                 </Link>
@@ -60,8 +65,11 @@ const Sidebar = ({ classes }) => (
                     Manage Users
                 </Link>
             </ListItem>
-           
-
+            <ListItem button>
+                <Link to="/playstores">
+                    Add Playstores links
+                </Link>
+            </ListItem>
         </List>
     </Drawer>
 );

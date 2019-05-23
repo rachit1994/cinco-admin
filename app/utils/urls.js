@@ -1,6 +1,6 @@
 const urls = {
-    "baseUrl": "http://18.191.189.162:3000/v1",
-  //  "baseUrl": "http://localhost:3000/v1",
+    // "baseUrl": "http://18.191.189.162:3000/v1",
+   "baseUrl": "http://localhost:3000/v1",
    "register": "/auth/register",
    "login": "/auth/login",
    "verifyOtp": "/verify/otp",
@@ -20,7 +20,8 @@ const urls = {
    "getFavs": "/map/findMultiple",
    "uploadImages": "/multiple",
    "searchUser": "/user/searchUser",
-   "uploadMultiple": "/map/insertMany"
+   "uploadMultiple": "/map/insertMany",
+   "getAllCompanies": "/map/getAllCompanies"
  }
  
  export default urls;

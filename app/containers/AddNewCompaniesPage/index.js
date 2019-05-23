@@ -11,6 +11,7 @@ import injectSaga from 'utils/injectSaga';
 import reducer from 'containers/LoginPage/reducer';
 import saga from './saga';
 import { selectLogin } from 'containers/LoginPage/selectors';
+import FileBase64 from 'react-file-base64';
 
 /* eslint-disable react/prefer-stateless-function */
 export class AddNewCompaniesPage extends React.PureComponent {
@@ -39,6 +40,7 @@ export class AddNewCompaniesPage extends React.PureComponent {
     };
 
     onDrop = (picture, a) => {
+        console.log('picture', picture);
         var newPictures = [];
 
         picture.map((img) => {
@@ -68,14 +70,12 @@ export class AddNewCompaniesPage extends React.PureComponent {
                         />
                     ))
                 }
-                <ImageUploader
-                    withIcon={true}
-                    buttonText='Choose images'
-                    onChange={this.onDrop}
-                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                    maxFileSize={5242880}
-                    withPreview={true}
+                <div>
+                <FileBase64
+                    multiple={ true }
+                    onDone={ this.onDrop }
                 />
+                </div>
                 <Button
                     variant="contained"
                     color="primary"

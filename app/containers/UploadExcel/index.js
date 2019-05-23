@@ -148,24 +148,3 @@ export default compose(
     withSaga,
     withConnect,
   )(UploadExcel);
-
-// {
-//     this.state.companies && this.state.companies.length > 0 && this.state.companies.map((obj, i) => (
-//         <div style={{ border: 'solid 1px' }} key={i}>
-//             {
-//                 Object.keys(this.translate).map((translate) => (
-            
-//                     <TextField
-//                         key={translate}
-//                         label={translate}
-//                         type="text"
-//                         value={obj[this.translate[translate]] || ''}
-//                     />
-                
-//                 ))
-//             }
-//         </div>
-//     ))
-        
-//     }
-   

@@ -13,10 +13,13 @@ import Paper from '@material-ui/core/Paper';
 import React from 'react';
 import Sidebar from 'components/Sidebar';
 import UploadExcel from 'containers/UploadExcel/Loadable';
+import AddMultiImages from 'containers/AddMultiImages/Loadable';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectLogin } from 'containers/LoginPage/selectors';
 import { withStyles } from '@material-ui/core/styles';
+import AddNewPromotions from 'containers/AddNewPromotions/Loadable';
+import Playstores from 'containers/Playstores/Loadable';
 
 const drawerWidth = 240;
 
@@ -81,6 +84,9 @@ export class DashboardPage extends React.PureComponent {
                                 <Route path="/addNewCompanies" component={AddNewCompaniesPage} />
                                 <Route path="/manageUsers" component={ManageUsersPage} />
                                 <Route path="/addMultipleCompanies" component={UploadExcel} />
+                                <Route path="/addImages" component={AddMultiImages} />
+                                <Route path="/addPromotions" component={AddNewPromotions} />
+                                <Route path='/playstores' component={Playstores} />
                             </Paper>
                         </Grid>
                     </Grid>
